@@ -1,9 +1,14 @@
+#include <Servo.h>
+
 #define LED_EYE 13
 #define LED_LIGHT 2
 #define OPTO A5
 
 int hb = 0;
 int vert_flag;
+
+Servo vertical_servo;
+int vert_pos = 0;
 
 void setup() {
   pinMode(LED_EYE, OUTPUT);
@@ -13,6 +18,7 @@ void setup() {
   digitalWrite(LED_LIGHT,1);
   delay(100);
   digitalWrite(LED_LIGHT,0);
+  vertical_servo.attach(9);
 }
 
 void loop() {
@@ -28,4 +34,13 @@ void loop() {
   //analogWrite(LED_EYE, LOW);
   //delay(vert_flag);
   //analogWrite(LED_EYE, vert_flag);
+  
+  for (vert_pos = 0; vert_pos <= 180; vert_pos += 1) { 
+    vertical_servo.write(vert_pos); 
+    delay(30); 
+  }
+  for (vert_pos = 180; vert_pos >= 0; vert_pos -= 1) { 
+    vertical_servo.write(vert_pos); 
+    delay(30); 
+  }
 }
