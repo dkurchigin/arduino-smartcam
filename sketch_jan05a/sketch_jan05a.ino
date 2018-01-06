@@ -1,5 +1,3 @@
-#include <Stepper.h>
-
 #define LED_EYE 13
 #define LED_LIGHT 2
 #define OPTO A5
