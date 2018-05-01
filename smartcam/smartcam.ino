@@ -4,6 +4,7 @@ Servo vertical_servo;
 Servo horizontal_servo;
 
 void setup() {
+  Serial.begin(9600);
   vertical_servo.attach(10);
   horizontal_servo.attach(9);
   vertical_servo.write(0);
@@ -16,6 +17,7 @@ void setup() {
   delay(300);
   vertical_servo.detach();
   horizontal_servo.detach();
+  Serial.println("Smartcam ready!");
 }
 
 void loop() {
