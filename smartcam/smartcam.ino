@@ -39,6 +39,18 @@ void loop() {
   }
   if(val.indexOf("Move down") > -1) {
     moveVertical("down");
+  }
+  if(val.indexOf("Move left") > -1) {
+    moveHorizontal("left");
+  }
+  if(val.indexOf("Move right") > -1) {
+    moveHorizontal("right");
+  }
+  if(val.indexOf("Light ON") > -1) {
+    light(1);
+  }
+  if(val.indexOf("Light OFF") > -1) {
+    light(0);
   } else {
       Serial.println(val);  //печатаем в монитор порта пришедшую строку
     }
@@ -76,3 +88,13 @@ void moveVertical(String direction) {
     //nothing
   }
 }
+
+void light(int light_status) {
+  if (light_status = 0) {
+    digitalWrite(LIGHT, LOW);
+  }
+  if (light_status = 1) {
+    digitalWrite(LIGHT, HIGH);
+  }
+}
+
